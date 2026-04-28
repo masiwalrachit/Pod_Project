@@ -9,7 +9,7 @@ import Guide from './pages/Guide';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Pod_Project">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
