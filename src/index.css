@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ── Leaflet overrides ────────────────────────────────── */
+.leaflet-container {
+  background: #0F172A !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Grab / grabbing cursors on the interactive layer */
+.leaflet-grab         { cursor: grab !important; }
+.leaflet-grab:active  { cursor: grabbing !important; }
+.leaflet-crosshair    { cursor: crosshair !important; }
+
+/* ── Safety zone pulse animations ────────────────────── */
+
+/*
+ * Leaflet L.circle with className sets it ON the <path> itself.
+ * So we target the class directly (not .class path).
+ */
+
+/* Green safe zones — gentle breathing glow */
+.zone-safe {
+  animation: safeGlow 3s ease-in-out infinite;
+}
+@keyframes safeGlow {
+  0%, 100% { fill-opacity: 0.10 !important; stroke-opacity: 0.6 !important; }
+  50%       { fill-opacity: 0.22 !important; stroke-opacity: 0.9 !important; }
+}
+
+/* Amber/Red danger zones — fast game-style flash */
+.zone-danger {
+  animation: dangerFlash 0.9s ease-in-out infinite;
+}
+@keyframes dangerFlash {
+  0%        { fill-opacity: 0.05 !important; stroke-opacity: 0.5 !important; stroke-width: 2 !important; }
+  45%, 55%  { fill-opacity: 0.40 !important; stroke-opacity: 1.0 !important; stroke-width: 3 !important; }
+  100%      { fill-opacity: 0.05 !important; stroke-opacity: 0.5 !important; stroke-width: 2 !important; }
+}
+
+/* ── Tourist trap marker ──────────────────────────────── */
+.trap-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trap-marker span {
+  position: relative;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 40% 35%, #EF4444, #991B1B);
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(239,68,68,0.6);
+}
+
+.trap-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(239, 68, 68, 0.7);
+  animation: trapRingExpand 1.4s ease-out infinite;
+}
+
+@keyframes trapRingExpand {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── Leaflet popups ───────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+  background: #1E293B;
+  color: #F8FAFC;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.leaflet-popup-tip {
+  background: #1E293B;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ── Glass card ───────────────────────────────────────── */
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-slate-100 text-slate-600 font-medium px-4 py-2 rounded-xl transition-all duration-200;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .tag-amber {
+    @apply tag bg-amber-100 text-amber-700;
+  }
+
+  .tag-teal {
+    @apply tag bg-teal-100 text-teal-700;
+  }
+
+  .tag-red {
+    @apply tag bg-red-100 text-red-700;
+  }
+
+  .tag-blue {
+    @apply tag bg-blue-100 text-blue-700;
+  }
+
+  .tag-purple {
+    @apply tag bg-purple-100 text-purple-700;
+  }
+}
