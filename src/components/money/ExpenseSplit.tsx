@@ -13,9 +13,7 @@ export default function ExpenseSplit() {
     });
   });
 
-  const avgPerPerson = Math.round(
-    Object.values(personTotals).reduce((a, b) => a + b, 0) / expenseData.members.length
-  );
+
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
