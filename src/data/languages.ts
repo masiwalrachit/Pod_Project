@@ -1,0 +1,22 @@
+export const languages = [
+  { native: 'English', english: 'English', code: 'EN' },
+  { native: 'हिंदी', english: 'Hindi', code: 'HI' },
+  { native: 'Español', english: 'Spanish', code: 'ES' },
+  { native: 'Français', english: 'French', code: 'FR' },
+  { native: 'Deutsch', english: 'German', code: 'DE' },
+  { native: 'Italiano', english: 'Italian', code: 'IT' },
+  { native: 'Português', english: 'Portuguese', code: 'PT' },
+  { native: '日本語', english: 'Japanese', code: 'JA' },
+  { native: '中文', english: 'Chinese Simplified', code: 'ZH' },
+  { native: '한국어', english: 'Korean', code: 'KO' },
+  { native: 'العربية', english: 'Arabic', code: 'AR' },
+  { native: 'Русский', english: 'Russian', code: 'RU' },
+  { native: 'Bahasa Indonesia', english: 'Indonesian', code: 'ID' },
+  { native: 'Nederlands', english: 'Dutch', code: 'NL' },
+  { native: 'Türkçe', english: 'Turkish', code: 'TR' },
+  { native: 'Polski', english: 'Polish', code: 'PL' },
+  { native: 'Tiếng Việt', english: 'Vietnamese', code: 'VI' },
+  { native: 'ภาษาไทย', english: 'Thai', code: 'TH' },
+  { native: 'বাংলা', english: 'Bengali', code: 'BN' },
+  { native: 'தமிழ்', english: 'Tamil', code: 'TA' }
+];

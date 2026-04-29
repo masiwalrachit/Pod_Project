@@ -298,6 +298,13 @@ export const safetyZones = [
   { name: "Centro Storico", daytime: "Safe", night: "Safe", soloWomen: "Generally safe", center: [41.8992, 12.4731] as [number, number] },
 ];
 
+export const emergencyFacilities = [
+  { id: 1, position: [41.8885, 12.4815] as [number, number], name: "Ospedale Fatebenefratelli", type: "Hospital", phone: "06 68371" },
+  { id: 2, position: [41.9056, 12.4823] as [number, number], name: "Ospedale San Giacomo", type: "Hospital", phone: "06 36261" },
+  { id: 3, position: [41.8972, 12.4799] as [number, number], name: "Carabinieri Polizia", type: "Police Station", phone: "112" },
+  { id: 4, position: [41.8930, 12.4920] as [number, number], name: "Questura di Roma", type: "Police Station", phone: "113" }
+];
+
 export const routeOptions = [
   {
     id: "A",

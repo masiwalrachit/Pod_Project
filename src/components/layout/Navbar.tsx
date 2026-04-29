@@ -1,5 +1,6 @@
 import { Search, Bell, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 interface NavbarProps {
   onMobileMenuToggle?: () => void;
@@ -34,6 +35,8 @@ export default function Navbar({ onMobileMenuToggle, mobileMenuOpen }: NavbarPro
 
         {/* Right section */}
         <div className="flex items-center gap-3 ml-4">
+          <LanguageSwitcher />
+          
           {/* Notification Bell */}
           <button className="relative p-2.5 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-all duration-200">
             <Bell className="w-5 h-5" />

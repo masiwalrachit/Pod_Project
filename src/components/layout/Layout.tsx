@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import GlobalEmergencyBanner from './GlobalEmergencyBanner';
 import { useState } from 'react';
 
 export default function Layout() {
@@ -8,6 +9,8 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <GlobalEmergencyBanner />
+      
       {/* Mobile overlay */}
       {mobileMenuOpen && (
         <div

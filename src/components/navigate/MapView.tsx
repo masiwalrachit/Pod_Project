@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { mapCenter, touristTraps, safetyZones } from '../../data/mockData';
+import { mapCenter, touristTraps, safetyZones, emergencyFacilities } from '../../data/mockData';
 import { waterFountains } from '../../data/travelIntelligence';
 
 interface MapViewProps {
@@ -127,6 +127,61 @@ export default function MapView({ showSafety }: MapViewProps) {
     });
 
     safetyRef.current = safetyLayer;
+
+    /* ── Emergency Facilities ───────────────────────── */
+    const makeEmergencyIcon = (type: string) => {
+      const isHospital = type === 'Hospital';
+      const color = isHospital ? '#EF4444' : '#3B82F6';
+      const icon = isHospital ? '🏥' : '🚓';
+      
+      return L.divIcon({
+        className: '',
+        html: `
+          <div style="position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:${color};border-radius:50%;border:2px solid white;box-shadow:0 0 10px ${color};">
+            <div style="position:absolute;inset:-4px;border-radius:50%;border:2px solid ${color};animation:ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;opacity:0.7;"></div>
+            <span style="font-size:14px;z-index:10;">${icon}</span>
+          </div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+      });
+    };
+
+    emergencyFacilities.forEach((facility) => {
+      L.marker(facility.position, { icon: makeEmergencyIcon(facility.type) })
+        .addTo(map)
+        .bindPopup(
+          `<div style="min-width:180px;font-family:'Plus Jakarta Sans',sans-serif;">
+            <div style="font-weight:700;color:${facility.type === 'Hospital' ? '#EF4444' : '#60A5FA'};margin-bottom:4px;font-size:13px;">${facility.name}</div>
+            <div style="font-size:12px;color:#E2E8F0;">${facility.type}</div>
+            <div style="font-size:12px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1);font-weight:600;color:#94A3B8;">📞 ${facility.phone}</div>
+           </div>`
+        );
+    });
+
+    /* ── Current Location ───────────────────────────── */
+    const makeCurrentLocationIcon = () =>
+      L.divIcon({
+        className: '',
+        html: `
+          <div style="position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;inset:-4px;background:#3B82F6;border-radius:50%;animation:ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;opacity:0.6;"></div>
+            <div style="width:14px;height:14px;background:#2563EB;border-radius:50%;border:2px solid white;z-index:10;box-shadow:0 0 10px rgba(59,130,246,0.8);"></div>
+          </div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+      });
+
+    // Offset slightly from mapCenter so it doesn't overlap the tourist trap
+    const userLocation: [number, number] = [mapCenter[0] - 0.0035, mapCenter[1] - 0.0055];
+
+    L.marker(userLocation, { icon: makeCurrentLocationIcon(), zIndexOffset: 1000 })
+      .addTo(map)
+      .bindPopup(
+        `<div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#3B82F6;font-size:13px;text-align:center;">
+          📍 You are here
+         </div>`
+      );
+
     mapRef.current    = map;
 
     return () => {

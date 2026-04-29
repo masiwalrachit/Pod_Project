@@ -5,15 +5,17 @@ import RouteAdvisor from '../components/navigate/RouteAdvisor';
 import DynamicReorder from '../components/navigate/DynamicReorder';
 import TransportAlerts from '../components/navigate/TransportAlerts';
 import TransportPassSuggestion from '../components/navigate/TransportPassSuggestion';
+import EmergencyOverlay from '../components/navigate/EmergencyOverlay';
 import { nearbyPlaces } from '../data/mockData';
 
 const MAP_HEIGHT = 680; // fixed px — Leaflet MUST have a resolved height
 
 export default function Navigate() {
   const [showSafety, setShowSafety] = useState(false);
+  const [showSOS, setShowSOS] = useState(false);
 
   return (
-    <div className="max-w-full animate-slide-up">
+    <div className="max-w-full animate-slide-up relative">
       <div className="flex flex-col lg:flex-row gap-5 items-start">
 
         {/* ── Map pane — fixed height, 65% on desktop ──── */}
@@ -84,6 +86,18 @@ export default function Navigate() {
         </div>
 
       </div>
+
+      {/* Floating Pulsing SOS Button */}
+      <button 
+        onClick={() => setShowSOS(true)}
+        className="fixed bottom-8 right-8 z-[90] bg-red-600 text-white w-16 h-16 rounded-full shadow-[0_0_25px_rgba(220,38,38,0.5)] flex items-center justify-center hover:bg-red-700 hover:scale-105 transition-all duration-300 group"
+      >
+        <div className="absolute inset-0 rounded-full border-[3px] border-red-500 animate-ping opacity-60 group-hover:hidden"></div>
+        <span className="font-black text-xl tracking-widest z-10">SOS</span>
+      </button>
+
+      {/* Emergency Overlay Component */}
+      {showSOS && <EmergencyOverlay onClose={() => setShowSOS(false)} />}
     </div>
   );
 }
