@@ -19,6 +19,8 @@ interface DayCardProps {
     afternoon: Activity[];
     evening: Activity[];
   };
+  isCompleted?: boolean;
+  onToggleComplete?: () => void;
 }
 
 const typeColors: Record<string, string> = {
@@ -62,8 +64,8 @@ function TimeBlock({ label, activities, color }: { label: string; activities: Ac
   );
 }
 
-export default function DayCard({ day, date, title, blocks }: DayCardProps) {
-  const [expanded, setExpanded] = useState(day <= 2);
+export default function DayCard({ day, date, title, blocks, isCompleted = false, onToggleComplete }: DayCardProps) {
+  const [expanded, setExpanded] = useState(!isCompleted && day <= 2);
   const totalActivities =
     blocks.morning.length + blocks.afternoon.length + blocks.evening.length;
 
@@ -98,11 +100,32 @@ export default function DayCard({ day, date, title, blocks }: DayCardProps) {
         className="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50/50 transition-colors"
       >
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleComplete?.();
+              if (!isCompleted) setExpanded(false); // Auto-collapse when checking off
+            }}
+            className={`flex-shrink-0 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${
+              isCompleted 
+                ? 'bg-teal-500 border-teal-500 text-white' 
+                : 'border-slate-300 text-transparent hover:border-teal-500 hover:text-teal-500/30'
+            }`}
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </button>
+
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md text-sm font-bold text-white transition-colors ${
+            isCompleted ? 'bg-slate-400' : 'bg-gradient-to-br from-amber-400 to-amber-500'
+          }`}>
             D{day}
           </div>
           <div className="text-left">
-            <h3 className="font-semibold text-slate-800 text-sm">{title}</h3>
+            <h3 className={`font-semibold text-sm transition-colors ${isCompleted ? 'text-slate-500 line-through' : 'text-slate-800'}`}>
+              {title}
+            </h3>
             <p className="text-xs text-slate-400">{date} · {totalActivities} activities</p>
           </div>
         </div>

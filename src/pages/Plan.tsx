@@ -1,4 +1,4 @@
-import { MapPin, Calendar, Copy } from 'lucide-react';
+import { MapPin, Calendar, Copy, Archive } from 'lucide-react';
 import { useState } from 'react';
 import DayCard from '../components/plan/DayCard';
 import CloneModal from '../components/plan/CloneModal';
@@ -10,6 +10,16 @@ import { tripItinerary } from '../data/mockData';
 
 export default function Plan() {
   const [cloneModalOpen, setCloneModalOpen] = useState(false);
+  const [completedDays, setCompletedDays] = useState<number[]>([]);
+
+  const toggleDayCompletion = (dayNum: number) => {
+    setCompletedDays(prev => 
+      prev.includes(dayNum) ? prev.filter(d => d !== dayNum) : [...prev, dayNum]
+    );
+  };
+
+  const activeDays = tripItinerary.days.filter(d => !completedDays.includes(d.day));
+  const archivedDays = tripItinerary.days.filter(d => completedDays.includes(d.day));
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -38,28 +48,58 @@ export default function Plan() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* Left Sidebar — Events */}
+        <div className="lg:col-span-1 space-y-6 animate-slide-in-right" style={{ animationDelay: '50ms' }}>
+          <div className="lg:sticky lg:top-24">
+            <EventSync />
+          </div>
+        </div>
+
         {/* Day-by-day itinerary — 2 cols */}
         <div className="lg:col-span-2 space-y-4 animate-slide-up" style={{ animationDelay: '100ms' }}>
           <CombineNearbyAlert />
-          {tripItinerary.days.map((day) => (
+          
+          {/* Active Days */}
+          {activeDays.map((day) => (
             <DayCard
               key={day.day}
               day={day.day}
               date={day.date}
               title={day.title}
               blocks={day.blocks}
+              isCompleted={false}
+              onToggleComplete={() => toggleDayCompletion(day.day)}
             />
           ))}
 
-          {/* Event Sync */}
-          <div className="mt-6">
-            <EventSync />
-          </div>
+          {/* Archived Days */}
+          {archivedDays.length > 0 && (
+            <div className="mt-8 pt-4">
+              <div className="flex items-center gap-3 mb-6 text-slate-400">
+                <Archive className="w-5 h-5" />
+                <h3 className="font-semibold uppercase tracking-widest text-xs">Archived Days</h3>
+                <div className="flex-1 h-px bg-slate-200" />
+              </div>
+              <div className="space-y-4 opacity-75 grayscale-[30%] transition-all duration-500">
+                {archivedDays.map((day) => (
+                  <DayCard
+                    key={day.day}
+                    day={day.day}
+                    date={day.date}
+                    title={day.title}
+                    blocks={day.blocks}
+                    isCompleted={true}
+                    onToggleComplete={() => toggleDayCompletion(day.day)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Sidebar — Miss Predictor */}
-        <div className="space-y-6 animate-slide-in-right" style={{ animationDelay: '200ms' }}>
+        {/* Right Sidebar — Miss Predictor */}
+        <div className="lg:col-span-1 space-y-6 animate-slide-in-right" style={{ animationDelay: '200ms' }}>
           <div className="lg:sticky lg:top-24">
             <MissPredictor />
             <CommunityQAWidget />

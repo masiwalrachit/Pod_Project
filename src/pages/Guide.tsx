@@ -24,7 +24,7 @@ export default function Guide() {
     return () => container.removeEventListener('scroll', handleScroll as any);
   }, []);
 
-  const totalFeatures = 19;
+  const totalFeatures = 25;
   const featuresExplored = Math.min(totalFeatures, Math.ceil(scrollProgress * totalFeatures) || 1);
 
   return (
@@ -138,6 +138,17 @@ export default function Guide() {
                 without="Travels to the same area twice. Loses half a travel day."
                 withText="Combines them. Gains a full day for Pompeii."
               />
+
+              <FeatureCard 
+                color="amber"
+                name="Itinerary Task Archiving"
+                summary="Check off days as you complete them so your active itinerary stays clean and focused on what's next."
+                problem="By day 4 of my 10-day trip, my itinerary is a mess. Half the things are done, but I still have to scroll past them every morning to figure out what I'm doing today. It feels overwhelming instead of helpful."
+                solution="Every day card has a simple completion checkbox. Check it, and the entire day gracefully collapses and moves into an 'Archived Days' section at the bottom, greying out so you only focus on your future plans."
+                story="On day 5 in Rome, Marcus checked off Day 4. It instantly faded into his archives. He woke up to a clean list showing exactly what he was doing that morning, without scrolling past his previous museum visits."
+                without="Scrolls endlessly past 4 days of completed activities every morning."
+                withText="Wakes up to a clean, focused plan of action."
+              />
             </div>
           </section>
 
@@ -213,6 +224,17 @@ export default function Guide() {
                 story="Yash spent ₹1,200 on bottled water during a week in Rome before a local told him the street fountains — nasoni — are fed by one of the world's best ancient aqueduct systems and are completely safe. Wayfind's indicator would have shown him this on Day 1."
                 without="Buys bottled water for 7 days. Spends ₹1,200 unnecessarily."
                 withText="Drinks from street fountains. Saves money, reduces plastic waste."
+              />
+
+              <FeatureCard 
+                color="teal"
+                name="Global Emergency SOS Overlay"
+                summary="A persistent, high-visibility safety net that gives you instant access to local emergency contacts and safe zones when you need them most."
+                problem="I was in a minor accident in Paris and realized I didn't know the local equivalent of 911. I panicked, wasting crucial minutes trying to google emergency numbers while flustered."
+                solution="A red pulsing SOS button sits persistently on your map view. One tap instantly pulls up a glassmorphic emergency overlay with local police/medical numbers and highlights the nearest safe zones directly on your map."
+                story="Sarah lost her passport and wallet near the Colosseum. Instead of panicking, she tapped the SOS button. Wayfind instantly showed her the local tourist police number and highlighted the nearest station 400 meters away."
+                without="Panics and googles for emergency numbers in a high-stress situation."
+                withText="Taps SOS. Gets numbers and nearby safe zones instantly."
               />
             </div>
           </section>
@@ -321,6 +343,49 @@ export default function Guide() {
                 without="Arrives during peak bloom. Shinjuku Gyoen sold out. Watches through the fence."
                 withText="Books ahead from home. Walks in on the best day of spring."
               />
+
+              <FeatureCard 
+                color="blue"
+                name="Cinematic Onboarding Loader"
+                summary="A premium, destination-specific flight animation that builds anticipation the moment you open the app."
+                problem="Every travel app opens to a boring, sterile spinner. The excitement of planning a trip is totally lost in the software experience. It feels like opening a spreadsheet, not preparing for an adventure."
+                solution="When you launch Wayfind, you get a cinematic, smooth animated sequence of a plane flying toward your specific destination (e.g., 'You're off to Rome'), setting the perfect emotional tone for your trip planning."
+                story="When Maya opened Wayfind to start planning her honeymoon, instead of a white screen, a beautifully animated plane flew across her screen declaring 'You're off to Rome.' She said it made the trip suddenly feel real."
+                without="Stares at a sterile loading spinner. Feels like work."
+                withText="Sees a cinematic flight to her destination. Feels the excitement."
+              />
+
+              <FeatureCard 
+                color="blue"
+                name="Global Language Switcher"
+                summary="Seamlessly translate your entire travel planning experience into your native language with a smart, searchable dropdown."
+                problem="I'm planning a trip with my parents, but the app is entirely in English. I have to translate everything for them manually, which is exhausting when trying to review a 10-day itinerary together."
+                solution="A sleek, searchable language selector in the main navigation instantly localizes the interface, allowing you to switch contexts on the fly and collaborate with non-English speakers effortlessly."
+                story="Carlos was building an itinerary for his family trip from Mexico to Italy. He planned in English, but switched the interface to Spanish (Español) instantly so his parents could review the Day 3 schedule themselves."
+                without="Manually translates everything. Takes twice as long to review."
+                withText="Switches language instantly. Parents review it themselves."
+              />
+            </div>
+          </section>
+
+          {/* CHAPTER 6 */}
+          <section>
+            <div className="w-full bg-rose-50 rounded-2xl p-8 mb-8 border-l-8 border-rose-500">
+              <h2 className="text-3xl font-black text-rose-900 mb-2 uppercase tracking-wide">Chapter 6 — Guides</h2>
+              <p className="text-rose-800 text-lg font-medium">Expert locals — when you need more than just an app</p>
+            </div>
+
+            <div className="space-y-8">
+              <FeatureCard 
+                color="rose"
+                name="Specialized Local Guide Network"
+                summary="Book highly-vetted local experts based on incredibly specific niches like 'Street Photography', 'Hidden Culinary Gems', or 'Underground History'."
+                problem="I wanted a food tour in Rome, but every generic platform sold me the same 50-person group walking tour hitting the same 3 tourist-trap restaurants. I wanted someone who actually lives there to show me where they eat."
+                solution="Wayfind Guides lets you filter by deep specialties. You see their languages, exact hourly rates, and ratings. You don't just book a tour, you hire a specialized local companion for your exact interests."
+                story="James is a photography enthusiast. Instead of a generic walking tour, he booked Elena on Wayfind—a local architecture photographer. For 3 hours, she took him to hidden rooftops and perfect light-spots tourists never find."
+                without="Takes a generic 50-person group tour. Eats average food."
+                withText="Books a specialized local. Discovers hidden gems."
+              />
             </div>
           </section>
 
@@ -347,7 +412,8 @@ function FeatureCard({ color, name, summary, problem, solution, story, without, 
     teal: 'border-teal-500',
     purple: 'border-purple-500',
     emerald: 'border-emerald-500',
-    blue: 'border-blue-500'
+    blue: 'border-blue-500',
+    rose: 'border-rose-500'
   };
 
   return (
