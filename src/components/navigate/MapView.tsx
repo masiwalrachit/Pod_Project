@@ -91,11 +91,11 @@ export default function MapView({ showSafety }: MapViewProps) {
       });
 
       circle.bindTooltip(
-        `<div style="font-size:12px;line-height:1.8;font-family:'Plus Jakarta Sans',sans-serif;">
+        `<div style="color: #000; font-size:12px;line-height:1.8;font-family:'Plus Jakarta Sans',sans-serif;">
           <strong style="font-size:13px;">📍 ${zone.name}</strong><br/>
           🌞 Daytime: <span style="color:${SAFETY_COLORS[zone.daytime]};font-weight:600;">${zone.daytime}</span><br/>
           🌙 Night: <span style="color:${SAFETY_COLORS[zone.night]};font-weight:600;">${zone.night}</span><br/>
-          👩 Solo women: <em>${zone.soloWomen}</em>
+          👩 Solo women: <em style="color: #000;">${zone.soloWomen}</em>
         </div>`,
         { direction: 'top', sticky: true }
       );
