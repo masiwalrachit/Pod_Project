@@ -65,8 +65,8 @@ export default function MapView({ showSafety }: MapViewProps) {
         .bindPopup(
           `<div style="min-width:210px;font-family:'Plus Jakarta Sans',sans-serif;">
             <div style="font-weight:700;color:#F59E0B;margin-bottom:6px;font-size:13px;">⚠️ Tourist Trap</div>
-            <div style="font-size:12px;color:#E2E8F0;line-height:1.6;">${trap.warning}</div>
-            <div style="font-size:11px;margin-top:8px;color:#94A3B8;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px;">
+            <div style="font-size:12px;color:#000000;line-height:1.6;">${trap.warning}</div>
+            <div style="font-size:11px;margin-top:8px;color:#334155;border-top:1px solid rgba(0,0,0,0.1);padding-top:6px;">
               🚩 ${trap.reports} travelers warned
             </div>
            </div>`
@@ -121,7 +121,7 @@ export default function MapView({ showSafety }: MapViewProps) {
         .bindPopup(
           `<div style="font-family:'Plus Jakarta Sans',sans-serif;">
             <div style="font-weight:700;color:#0D9488;font-size:13px;">${fountain.name}</div>
-            <div style="font-size:11px;color:#64748B;margin-top:2px;">Free drinking water</div>
+            <div style="font-size:11px;color:#334155;margin-top:2px;">Free drinking water</div>
            </div>`
         );
     });
@@ -151,9 +151,9 @@ export default function MapView({ showSafety }: MapViewProps) {
         .addTo(map)
         .bindPopup(
           `<div style="min-width:180px;font-family:'Plus Jakarta Sans',sans-serif;">
-            <div style="font-weight:700;color:${facility.type === 'Hospital' ? '#EF4444' : '#60A5FA'};margin-bottom:4px;font-size:13px;">${facility.name}</div>
-            <div style="font-size:12px;color:#E2E8F0;">${facility.type}</div>
-            <div style="font-size:12px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1);font-weight:600;color:#94A3B8;">📞 ${facility.phone}</div>
+            <div style="font-weight:700;color:${facility.type === 'Hospital' ? '#EF4444' : '#3B82F6'};margin-bottom:4px;font-size:13px;">${facility.name}</div>
+            <div style="font-size:12px;color:#000000;">${facility.type}</div>
+            <div style="font-size:12px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(0,0,0,0.1);font-weight:600;color:#334155;">📞 ${facility.phone}</div>
            </div>`
         );
     });

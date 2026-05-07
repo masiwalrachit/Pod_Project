@@ -129,14 +129,14 @@ body {
 
 /* ── Leaflet popups & tooltips ──────────────────────── */
 .leaflet-popup-content-wrapper {
-  background: #1E293B;
-  color: #F8FAFC;
+  background: #FFFFFF !important;
+  color: #000000 !important;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .leaflet-popup-tip {
-  background: #1E293B;
+  background: #FFFFFF !important;
 }
 
 .leaflet-popup-content {
