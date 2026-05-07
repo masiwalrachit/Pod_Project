@@ -10,7 +10,7 @@ export default function Dashboard() {
       {/* Welcome Section */}
       <div className="animate-slide-up">
         <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
-          Welcome back, <span className="text-amber-500">Rahul</span> ✈️
+          Welcome back, <span className="text-amber-500">Neha Singh</span> ✈️
         </h1>
         <p className="text-slate-500 mt-1">3 trips planned · Goa in 14 days</p>
       </div>

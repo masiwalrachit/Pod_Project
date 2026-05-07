@@ -47,7 +47,7 @@ export default function WelcomeLoader() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
         style={{ 
-          backgroundImage: "url('/goa-bg.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}goa-bg.jpg')`,
           opacity: phase === 'hiding' ? 0 : 0.6
         }}
       ></div>

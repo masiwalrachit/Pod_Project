@@ -83,7 +83,7 @@ export default function Sidebar() {
         />
         {!collapsed && (
           <div className="animate-fade-in">
-            <p className="text-sm font-semibold text-white">Rahul K.</p>
+            <p className="text-sm font-semibold text-white">Neha Singh</p>
             <p className="text-xs text-slate-400">Explorer</p>
           </div>
         )}

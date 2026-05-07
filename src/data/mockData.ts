@@ -12,7 +12,7 @@ export const upcomingTrips = [
     endDate: "2026-05-20",
     daysUntil: 14,
     cover: "linear-gradient(160deg, #7C3A00, #C4621A)",
-    travelers: ["Rahul", "Priya", "Arjun"],
+    travelers: ["Neha Singh", "Priya", "Arjun"],
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const upcomingTrips = [
     endDate: "2026-06-24",
     daysUntil: 45,
     cover: "linear-gradient(160deg, #0D2A0D, #1A5C1A)",
-    travelers: ["Rahul"],
+    travelers: ["Neha Singh"],
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const upcomingTrips = [
     endDate: "2026-08-12",
     daysUntil: 90,
     cover: "linear-gradient(160deg, #3D2A00, #8C6A00)",
-    travelers: ["Rahul", "Neha"],
+    travelers: ["Neha Singh", "Neha"],
   },
 ];
 
@@ -402,20 +402,20 @@ export const budgetData = {
 // ── Money Page — Group Expense Split ─────────────────
 export const expenseData = {
   tripName: "Goa Getaway",
-  members: ["Rahul", "Priya", "Arjun"],
-  currentUser: "Rahul", // Added current user context
+  members: ["Neha Singh", "Priya", "Arjun"],
+  currentUser: "Neha Singh", // Added current user context
   expenses: [
-    { id: 1, day: 1, date: "Today, 1:30 PM", category: "Food", paidBy: "Rahul", description: "Lunch at Fisherman's Wharf", amount: 3200, splitAmong: ["Rahul", "Priya", "Arjun"] },
-    { id: 2, day: 1, date: "Today, 8:45 PM", category: "Drinks", paidBy: "Priya", description: "Drinks at Tito's Lane", amount: 4500, splitAmong: ["Rahul", "Priya", "Arjun"] },
-    { id: 3, day: 2, date: "Yesterday, 10:00 AM", category: "Transport", paidBy: "Arjun", description: "Scooter Rentals (2 Activas)", amount: 1200, splitAmong: ["Rahul", "Priya", "Arjun"] },
-    { id: 4, day: 2, date: "Yesterday, 11:30 AM", category: "Transport", paidBy: "Rahul", description: "GoaMiles Airport Taxi", amount: 1800, splitAmong: ["Rahul", "Priya"] },
-    { id: 5, day: 3, date: "2 days ago", category: "Entertainment", paidBy: "Priya", description: "Casino Pride Entry", amount: 7500, splitAmong: ["Rahul", "Priya", "Arjun"] },
-    { id: 6, day: 3, date: "2 days ago", category: "Food", paidBy: "Arjun", description: "Fish Thali at Vinayak", amount: 1500, splitAmong: ["Rahul", "Arjun"] },
-    { id: 7, day: 4, date: "3 days ago", category: "Activity", paidBy: "Rahul", description: "Dudhsagar Jeep Safari", amount: 2400, splitAmong: ["Rahul", "Priya", "Arjun"] },
-    { id: 8, day: 4, date: "3 days ago", category: "Drinks", paidBy: "Priya", description: "Sunset beers at Palolem", amount: 1600, splitAmong: ["Rahul", "Priya", "Arjun"] },
+    { id: 1, day: 1, date: "Today, 1:30 PM", category: "Food", paidBy: "Neha Singh", description: "Lunch at Fisherman's Wharf", amount: 3200, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
+    { id: 2, day: 1, date: "Today, 8:45 PM", category: "Drinks", paidBy: "Priya", description: "Drinks at Tito's Lane", amount: 4500, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
+    { id: 3, day: 2, date: "Yesterday, 10:00 AM", category: "Transport", paidBy: "Arjun", description: "Scooter Rentals (2 Activas)", amount: 1200, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
+    { id: 4, day: 2, date: "Yesterday, 11:30 AM", category: "Transport", paidBy: "Neha Singh", description: "GoaMiles Airport Taxi", amount: 1800, splitAmong: ["Neha Singh", "Priya"] },
+    { id: 5, day: 3, date: "2 days ago", category: "Entertainment", paidBy: "Priya", description: "Casino Pride Entry", amount: 7500, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
+    { id: 6, day: 3, date: "2 days ago", category: "Food", paidBy: "Arjun", description: "Fish Thali at Vinayak", amount: 1500, splitAmong: ["Neha Singh", "Arjun"] },
+    { id: 7, day: 4, date: "3 days ago", category: "Activity", paidBy: "Neha Singh", description: "Dudhsagar Jeep Safari", amount: 2400, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
+    { id: 8, day: 4, date: "3 days ago", category: "Drinks", paidBy: "Priya", description: "Sunset beers at Palolem", amount: 1600, splitAmong: ["Neha Singh", "Priya", "Arjun"] },
   ],
   balances: [
-    { name: "Rahul", owes: 1050, owedBy: "Priya" },
+    { name: "Neha Singh", owes: 1050, owedBy: "Priya" },
     { name: "Arjun", owes: 4850, owedBy: "Priya" },
   ],
 };
