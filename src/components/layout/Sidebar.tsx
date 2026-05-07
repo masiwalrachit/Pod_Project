@@ -18,7 +18,7 @@ const navItems = [
   { to: '/navigate', icon: Compass, label: 'Navigate' },
   { to: '/guides', icon: UserRound, label: 'Guides' },
   { to: '/community', icon: Users, label: 'Community' },
-  { to: '/money', icon: Wallet, label: 'Money' },
+  { to: '/money', icon: Wallet, label: 'Expense' },
   { to: '/guide', icon: Map, label: 'Feature Guide' },
 ];
 
