@@ -43,8 +43,17 @@ export default function WelcomeLoader() {
         ${phase === 'hiding' ? 'opacity-0 -translate-y-20' : 'opacity-100 translate-y-0'}
       `}
     >
-      {/* Background radial glow */}
-      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 via-[#0A0C12] to-[#0A0C12]"></div>
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        style={{ 
+          backgroundImage: "url('/goa-bg.jpg')",
+          opacity: phase === 'hiding' ? 0 : 0.6
+        }}
+      ></div>
+      
+      {/* Overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0C12]/80 via-[#0A0C12]/40 to-[#0A0C12]/90"></div>
 
       {/* Main Text Container */}
       <div 
@@ -52,10 +61,10 @@ export default function WelcomeLoader() {
           ${phase === 'initial' ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0'}
         `}
       >
-        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 tracking-tight mb-5 drop-shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-          You are off to Rome
+        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500 tracking-tight mb-5 drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+          You are off to Goa
         </h1>
-        <p className="text-slate-400 text-lg md:text-2xl font-medium tracking-widest animate-pulse-soft uppercase">
+        <p className="text-white text-lg md:text-2xl font-medium tracking-widest animate-pulse-soft uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
           Preparing your travel intelligence
         </p>
       </div>

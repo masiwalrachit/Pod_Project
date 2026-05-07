@@ -16,7 +16,7 @@ export default function EventSync() {
         </div>
         <div>
           <h3 className="font-bold text-sm text-slate-800">Events During Your Trip</h3>
-          <p className="text-xs text-slate-500">Auto-detected for Rome, May 12–19</p>
+          <p className="text-xs text-slate-500">Auto-detected for Goa, May 15–20</p>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ export default function EventSync() {
             </div>
             <button className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity bg-teal-600 hover:bg-teal-700 text-white text-xs px-3 py-1.5 rounded-lg font-medium flex items-center gap-1">
               <Plus className="w-3 h-3" />
-              Add to Day
+              {event.name.includes("Market") ? "Add to Day 2" : "Add to Day"}
             </button>
           </div>
         ))}

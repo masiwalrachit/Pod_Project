@@ -25,7 +25,7 @@ export default function DynamicReorder() {
           <div className="flex-1">
             <p className="text-sm font-semibold text-white">Live Update</p>
             <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-              Heavy crowd at Colosseum detected. Suggested: swap Day 2 morning with afternoon for a smoother experience.
+              Heavy crowd at Fort Aguada detected. Suggested: swap Day 2 morning with afternoon for a smoother experience.
             </p>
             <div className="flex items-center gap-2 mt-3">
               <button className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all">

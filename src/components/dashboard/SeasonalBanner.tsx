@@ -8,7 +8,7 @@ export default function SeasonalBanner() {
       </div>
       <div className="flex-1">
         <h3 className="text-sm font-bold text-amber-900 flex items-center gap-2">
-          Seasonal Heads-up: Rome in July
+          Seasonal Heads-up: Goa in December
           <AlertCircle className="w-3.5 h-3.5 text-amber-500" />
         </h3>
         <p className="text-sm text-amber-800 mt-1">

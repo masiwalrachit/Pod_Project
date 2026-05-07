@@ -56,6 +56,36 @@ export default function ActivityFlags({ activityName, time }: { activityName: st
           No photography inside
         </span>
       )}
+      {flags.scamZone && (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-red-50 text-red-700 text-[10px] font-semibold border border-red-100">
+          <AlertTriangle className="w-3 h-3" />
+          Taxi scam zone
+        </span>
+      )}
+      {flags.bargain && (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-semibold border border-slate-200">
+          <Banknote className="w-3 h-3" />
+          Bargain — no fixed price
+        </span>
+      )}
+      {flags.onlyWed && (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-50 text-amber-700 text-[10px] font-semibold border border-amber-100">
+          <CalendarClock className="w-3 h-3" />
+          Only open Wednesdays
+        </span>
+      )}
+      {flags.coverCharge && (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-purple-50 text-purple-700 text-[10px] font-semibold border border-purple-100">
+          <Banknote className="w-3 h-3" />
+          Cover charge applies
+        </span>
+      )}
+      {flags.keepSafe && (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-semibold border border-slate-200">
+          <AlertTriangle className="w-3 h-3" />
+          Keep valuables safe
+        </span>
+      )}
     </div>
   );
 }

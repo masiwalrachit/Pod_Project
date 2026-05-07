@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Star, MapPin, X, Calendar, Clock, Hourglass } from 'lucide-react';
+import { Star, MapPin, X, Calendar, Clock, Hourglass, Compass } from 'lucide-react';
 import { guidesData } from '../data/guidesData';
 
 export default function Guides() {
@@ -18,9 +18,9 @@ export default function Guides() {
     if (cityFilter && guide.city !== cityFilter) return false;
     if (categoryFilter && guide.category !== categoryFilter) return false;
     if (priceFilter) {
-      if (priceFilter === 'Budget' && guide.price >= 500) return false;
-      if (priceFilter === 'Mid' && (guide.price < 500 || guide.price > 1500)) return false;
-      if (priceFilter === 'Premium' && guide.price <= 1500) return false;
+      if (priceFilter === 'Budget' && guide.price >= 450) return false;
+      if (priceFilter === 'Mid' && (guide.price < 450 || guide.price > 550)) return false;
+      if (priceFilter === 'Premium' && guide.price <= 550) return false;
     }
     return true;
   });
@@ -37,30 +37,36 @@ export default function Guides() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0C12] text-[#F0F2F8] p-6 lg:p-10 pt-20 lg:pt-24 pb-24">
+    <div className="max-w-7xl mx-auto animate-slide-up pb-24">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Book a Local Guide</h1>
-        <p className="text-[#3A4060] text-lg">
-          Handpicked locals who know their city inside out. Not a tour operator — a real person.
-        </p>
+      <div className="mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-9 h-9 rounded-xl bg-teal-100 flex items-center justify-center">
+            <Compass className="w-5 h-5 text-teal-600" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Book a Local Guide</h1>
+            <p className="text-slate-500 text-sm">Handpicked locals who know Goa inside out.</p>
+          </div>
+        </div>
       </div>
 
       {/* Filter Bar */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row gap-3 mb-8">
         <select 
-          className="bg-[#0F1118] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B]"
+          className="bg-white border border-slate-200 text-slate-700 font-medium rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
           value={cityFilter}
           onChange={(e) => setCityFilter(e.target.value)}
         >
-          <option value="">All Cities</option>
-          <option value="Rome">Rome</option>
-          <option value="Bali">Bali</option>
-          <option value="Tokyo">Tokyo</option>
+          <option value="">All Regions</option>
+          <option value="North Goa">North Goa</option>
+          <option value="South Goa">South Goa</option>
+          <option value="Panjim">Panjim</option>
+          <option value="Old Goa">Old Goa</option>
         </select>
         
         <select 
-          className="bg-[#0F1118] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B]"
+          className="bg-white border border-slate-200 text-slate-700 font-medium rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
         >
@@ -68,76 +74,72 @@ export default function Guides() {
           <option value="Food & Restaurants">Food & Restaurants</option>
           <option value="History & Culture">History & Culture</option>
           <option value="Adventure">Adventure</option>
-          <option value="Photography">Photography</option>
           <option value="Nightlife">Nightlife</option>
           <option value="Hidden Gems">Hidden Gems</option>
         </select>
 
         <select 
-          className="bg-[#0F1118] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B]"
+          className="bg-white border border-slate-200 text-slate-700 font-medium rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
           value={priceFilter}
           onChange={(e) => setPriceFilter(e.target.value)}
         >
           <option value="">All Prices</option>
-          <option value="Budget">Budget under ₹500/hr</option>
-          <option value="Mid">Mid ₹500–₹1500/hr</option>
-          <option value="Premium">Premium ₹1500+/hr</option>
+          <option value="Budget">Budget under ₹450/hr</option>
+          <option value="Mid">Mid ₹450–₹550/hr</option>
+          <option value="Premium">Premium ₹550+/hr</option>
         </select>
       </div>
 
       {/* Guide Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredGuides.map((guide) => (
-          <div key={guide.id} className="bg-[#0F1118] border border-[#1A1D2A] rounded-2xl p-6 flex flex-col hover:border-[#3A4060] transition-colors">
+          <div key={guide.id} className="bg-white border border-slate-100 rounded-2xl p-6 flex flex-col hover:border-slate-300 hover:shadow-md transition-all">
             <div className="flex items-start gap-4 mb-4">
-              <div className={`w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white shrink-0 ${guide.color}`}>
+              <div className={`w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white shrink-0 shadow-sm ${guide.color}`}>
                 {guide.name.split(' ').map((n: string) => n[0]).join('')}
               </div>
               <div>
-                <h3 className="font-bold text-lg">{guide.name}</h3>
+                <h3 className="font-bold text-lg text-slate-900">{guide.name}</h3>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  <span className="inline-flex items-center gap-1 bg-[#1A1D2A] text-[#0D9488] px-2 py-0.5 rounded-full text-xs font-medium">
+                  <span className="inline-flex items-center gap-1 bg-slate-100 text-teal-700 px-2 py-0.5 rounded-md text-xs font-bold">
                     <MapPin className="w-3 h-3" /> {guide.city}
                   </span>
-                  <span className="inline-flex items-center bg-[#1A1D2A] text-[#F0F2F8] px-2 py-0.5 rounded-full text-xs font-medium">
+                  <span className="inline-flex items-center bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md text-xs font-bold">
                     {guide.category}
                   </span>
                 </div>
               </div>
             </div>
             
-            <div className="flex items-center gap-1 text-sm font-medium mb-3">
-              <Star className="w-4 h-4 text-[#F59E0B] fill-[#F59E0B]" />
-              <span className="text-[#F0F2F8]">{guide.rating}</span>
-              <span className="text-[#3A4060]">· {guide.trips} trips</span>
+            <div className="flex items-center gap-1 text-sm font-bold mb-3">
+              <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+              <span className="text-slate-800">{guide.rating}</span>
+              <span className="text-slate-400 font-medium">· {guide.trips} trips</span>
             </div>
 
-            <p className="text-[#F0F2F8] text-sm leading-relaxed mb-4 flex-1 line-clamp-2">
+            <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
               {guide.bio}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-6">
               {guide.languages.map((lang: string) => (
-                <span key={lang} className="text-xs text-[#3A4060] bg-[#1A1D2A] px-2 py-1 rounded-md">
+                <span key={lang} className="text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-50 border border-slate-100 px-2 py-1 rounded">
                   {lang}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center justify-between mt-auto">
+            <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
               <div>
-                <span className="text-lg font-bold text-[#F0F2F8]">₹{guide.price}</span>
-                <span className="text-xs text-[#3A4060]">/hr</span>
+                <span className="text-lg font-bold text-slate-900">₹{guide.price}</span>
+                <span className="text-xs text-slate-500 font-medium">/hr</span>
               </div>
               <div className="flex gap-2">
-                <button className="px-4 py-2 rounded-xl text-sm font-medium border border-[#1A1D2A] hover:bg-[#1A1D2A] text-[#F0F2F8] transition-colors">
-                  View Profile
-                </button>
                 <button 
                   onClick={() => handleBookClick(guide)}
-                  className="px-4 py-2 rounded-xl text-sm font-bold bg-[#F59E0B] text-[#0A0C12] hover:bg-[#D97706] transition-colors"
+                  className="px-5 py-2 rounded-xl text-sm font-bold bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-sm"
                 >
-                  Book Now
+                  Book Guide
                 </button>
               </div>
             </div>
@@ -147,41 +149,41 @@ export default function Guides() {
 
       {/* Booking Modal */}
       {isModalOpen && selectedGuide && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-[#0F1118] border border-[#1A1D2A] rounded-2xl w-full max-w-md overflow-hidden">
-            <div className="p-6 border-b border-[#1A1D2A] flex items-center justify-between">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl w-full max-w-md overflow-hidden transform transition-all">
+            <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
               <div>
-                <h2 className="text-xl font-bold text-[#F0F2F8]">{selectedGuide.name}</h2>
-                <p className="text-sm text-[#0D9488] flex items-center gap-1 mt-1">
+                <h2 className="text-xl font-bold text-slate-900">{selectedGuide.name}</h2>
+                <p className="text-sm font-bold text-teal-700 flex items-center gap-1 mt-1">
                   <MapPin className="w-3 h-3" /> {selectedGuide.city}
                 </p>
               </div>
-              <button onClick={() => setIsModalOpen(false)} className="text-[#3A4060] hover:text-[#F0F2F8]">
-                <X className="w-6 h-6" />
+              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600 bg-white rounded-full p-1 border border-slate-200">
+                <X className="w-5 h-5" />
               </button>
             </div>
             
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-5">
               <div>
-                <label className="block text-sm text-[#3A4060] mb-1.5 flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4" /> Date
+                <label className="block text-sm font-bold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-slate-400" /> Date
                 </label>
                 <input 
                   type="date" 
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full bg-[#0A0C12] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B] [color-scheme:dark]"
+                  className="w-full bg-white border border-slate-200 text-slate-800 rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-[#3A4060] mb-1.5 flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" /> Time
+                <label className="block text-sm font-bold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-slate-400" /> Time
                 </label>
                 <select 
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="w-full bg-[#0A0C12] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full bg-white border border-slate-200 text-slate-800 rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
                 >
                   <option value="Morning 9am">Morning 9am</option>
                   <option value="Afternoon 2pm">Afternoon 2pm</option>
@@ -190,13 +192,13 @@ export default function Guides() {
               </div>
 
               <div>
-                <label className="block text-sm text-[#3A4060] mb-1.5 flex items-center gap-1.5">
-                  <Hourglass className="w-4 h-4" /> Duration
+                <label className="block text-sm font-bold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                  <Hourglass className="w-4 h-4 text-slate-400" /> Duration
                 </label>
                 <select 
                   value={duration}
                   onChange={(e) => setDuration(Number(e.target.value))}
-                  className="w-full bg-[#0A0C12] border border-[#1A1D2A] text-[#F0F2F8] rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#F59E0B]"
+                  className="w-full bg-white border border-slate-200 text-slate-800 rounded-xl px-4 py-2.5 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
                 >
                   <option value={2}>2 hrs</option>
                   <option value={4}>4 hrs</option>
@@ -204,27 +206,21 @@ export default function Guides() {
                 </select>
               </div>
 
-              <div className="bg-[#0A0C12] rounded-xl p-4 mt-6 border border-[#1A1D2A] flex items-center justify-between">
-                <span className="text-[#F0F2F8] font-medium">Total Price</span>
-                <span className="text-xl font-bold text-[#F59E0B]">
+              <div className="bg-slate-50 rounded-xl p-4 mt-6 border border-slate-100 flex items-center justify-between">
+                <span className="text-slate-600 font-bold text-sm">Total Price</span>
+                <span className="text-2xl font-bold text-teal-700 font-mono">
                   ₹{(selectedGuide.price * duration).toLocaleString()}
                 </span>
               </div>
             </div>
 
-            <div className="p-6 border-t border-[#1A1D2A] flex flex-col gap-3">
+            <div className="p-6 pt-0 flex flex-col gap-3">
               <button 
                 onClick={handleConfirmBooking}
                 disabled={!date}
-                className="w-full py-3 rounded-xl font-bold bg-[#F59E0B] text-[#0A0C12] hover:bg-[#D97706] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3.5 rounded-xl font-bold bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Confirm Booking
-              </button>
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="w-full py-2 text-sm text-[#3A4060] hover:text-[#F0F2F8] transition-colors"
-              >
-                Cancel
               </button>
             </div>
           </div>
@@ -233,9 +229,14 @@ export default function Guides() {
 
       {/* Success Toast */}
       {showToast && selectedGuide && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#0D9488] text-white px-6 py-3 rounded-full shadow-lg font-medium flex items-center gap-2 z-[110] animate-slide-up">
-          <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
-          Booking confirmed! {selectedGuide.name.split(' ')[0]} will meet you at your hotel lobby.
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-xl font-medium flex items-center gap-3 z-[110] animate-slide-up border border-slate-700">
+          <div className="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-teal-400 animate-ping" />
+          </div>
+          <div>
+            <p className="font-bold text-sm">Booking confirmed!</p>
+            <p className="text-xs text-slate-400">{selectedGuide.name.split(' ')[0]} will meet you at your hotel lobby.</p>
+          </div>
         </div>
       )}
     </div>

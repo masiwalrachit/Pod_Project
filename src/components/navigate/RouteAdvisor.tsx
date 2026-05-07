@@ -3,8 +3,8 @@ import { routeOptions } from '../../data/mockData';
 import { useState } from 'react';
 
 export default function RouteAdvisor() {
-  const [from, setFrom] = useState('Hotel Raphael');
-  const [to, setTo] = useState('Colosseum');
+  const [from, setFrom] = useState('Calangute Beach Shack');
+  const [to, setTo] = useState('Fort Aguada');
   const [showRoutes, setShowRoutes] = useState(true);
 
   return (

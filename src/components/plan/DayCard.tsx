@@ -162,7 +162,7 @@ export default function DayCard({ day, date, title, blocks, isCompleted = false,
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2 pl-8">
-                  {(destinationSuggestions["Rome"] || []).map((sug, i) => (
+                  {(destinationSuggestions["Goa"] || []).map((sug, i) => (
                     <button key={i} className="flex items-center gap-1 bg-white border border-blue-200 text-blue-700 text-xs font-medium px-2.5 py-1.5 rounded-full hover:bg-blue-100 transition-colors shadow-sm">
                       <Plus className="w-3 h-3" />
                       {sug}

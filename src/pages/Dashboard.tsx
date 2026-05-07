@@ -12,7 +12,7 @@ export default function Dashboard() {
         <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
           Welcome back, <span className="text-amber-500">Rahul</span> ✈️
         </h1>
-        <p className="text-slate-500 mt-1">Your next adventure is just around the corner.</p>
+        <p className="text-slate-500 mt-1">3 trips planned · Goa in 14 days</p>
       </div>
 
       <SeasonalBanner />

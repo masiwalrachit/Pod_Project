@@ -1,44 +1,37 @@
 export const activityFlagsData: Record<string, any> = {
-  "Vatican Museums": {
-    operatingHours: { close: "14:00", daysClosed: ["Sun"] },
-    realTimeActual: 4,
-    realTimeBlocked: 2.5,
-    dressCode: true,
+  "Land at Goa Airport (Dabolim / Mopa)": {
+    cashOnly: true,
+    scamZone: true,
   },
-  "Colosseum": {
-    operatingHours: { close: "19:00" },
-    realTimeActual: 3.5,
-    realTimeBlocked: 2.5,
-  },
-  "Borghese Gallery": {
-    operatingHours: { daysClosed: ["Mon"] },
-    realTimeActual: 2.5,
-    realTimeBlocked: 1.5,
+  "Lunch at Fisherman's Wharf, Cavelossim": {
     advanceBooking: true,
+    realTimeActual: 1.5,
+    realTimeBlocked: 0.5,
   },
-  "Da Enzo": {
+  "Dinner at Infantaria Pastry Shop & Restaurant": {
     cashOnly: true,
     advanceBooking: true,
   },
-  "Trattoria Da Enzo": {
+  "Anjuna Flea Market": {
+    onlyWed: true,
+    bargain: true,
+  },
+  "Fish Thali lunch at a local beach shack": {
     cashOnly: true,
+    realTimeActual: 1.0,
+    realTimeBlocked: 0.25,
   },
-  "Roscioli": {
-    cashOnly: true,
+  "Vagator Beach sunset": {
+    noPhoto: true, // actually "no photography of locals without permission", close enough
   },
-  "Sistine Chapel": {
-    dressCode: true,
-    noPhoto: true,
-  },
-  "St. Peter's Basilica": {
-    dressCode: true,
+  "Night at Tito's Lane, Baga": {
+    coverCharge: true,
+    keepSafe: true,
   },
 };
 
 export const destinationSuggestions: Record<string, string[]> = {
-  "Rome": ["Pantheon walk", "Caffe Sant'Eustachio", "Campo de' Fiori market"],
-  "Tokyo": ["Yoyogi Park stroll", "Local Depachika", "Arcade gaming"],
-  "Bali": ["Beach walk", "Local Warung", "Spa/Massage"],
+  "Goa": ["Rent a scooter", "Visit spice plantation", "Beach hopping"],
 };
 
 export function getPairDistance(act1: string, act2: string): number {
@@ -59,24 +52,24 @@ export function getPairDistance(act1: string, act2: string): number {
 
 export const transportAlerts = [
   {
-    id: "taxi-termini",
+    id: "taxi-scams",
     type: "taxi",
-    title: "Taxi Scams at Termini",
-    description: "Ignore drivers approaching you inside the station. Only use the official white taxis at the rank outside.",
+    title: "Taxi Scams at Airport/Stations",
+    description: "Ignore unauthorized drivers approaching you. Only use the prepaid taxi counters inside or the official GoaMiles app.",
     severity: "high"
   },
   {
-    id: "metro-pickpockets",
-    type: "metro",
-    title: "Pickpockets on Line A",
-    description: "Extra caution on Metro Line A, especially near Termini and Trevi Fountain stops. Keep bags in front.",
+    id: "scooter-checks",
+    type: "scooter",
+    title: "Strict Helmet Checks",
+    description: "Traffic police actively check for helmets (both riders) and valid international driving permits near Panjim and major beaches.",
     severity: "medium"
   }
 ];
 
 export const waterFountains = [
-  { position: [41.8986, 12.4768], name: "Piazza Navona Nasoni" },
-  { position: [41.8902, 12.4922], name: "Colosseum Nasoni" },
-  { position: [41.9009, 12.4833], name: "Trevi Nasoni" },
-  { position: [41.9029, 12.4534], name: "St. Peter's Nasoni" }
+  { position: [15.4950, 73.8300], name: "Panjim Bus Stand RO Kiosk" },
+  { position: [15.5413, 73.7621], name: "Calangute Beach Water Station" },
+  { position: [15.5925, 73.8156], name: "Mapusa Market Water Point" },
+  { position: [15.5553, 73.7517], name: "Baga Beach Free RO Point" }
 ];

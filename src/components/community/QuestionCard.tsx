@@ -37,14 +37,14 @@ const mockComments: Comment[] = [
     id: 1,
     author: { name: "David Park", avatar: "https://i.pravatar.cc/36?img=22" },
     timePosted: "1 hour ago",
-    text: "I did this last month! If you're going to Borghese and the Colosseum, the pass is absolutely worth it. It covers both and lets you skip the massive ticket lines.",
+    text: "Honestly, if you're a complete beginner, stick to GoaMiles or local taxis. The traffic can be unpredictable and the roads around Anjuna/Vagator are quite narrow and winding.",
     upvotes: 14,
   },
   {
     id: 2,
     author: { name: "Elena Rossi", avatar: "https://i.pravatar.cc/36?img=1" },
     timePosted: "30 mins ago",
-    text: "Make sure you still book your entry time slot for Borghese even with the pass! It's mandatory.",
+    text: "I disagree! Just drive slowly and wear a helmet. It's the best way to explore the hidden beaches at your own pace. Just avoid the main highways.",
     upvotes: 5,
   }
 ];

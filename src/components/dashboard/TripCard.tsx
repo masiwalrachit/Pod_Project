@@ -13,16 +13,23 @@ export default function TripCard({ name, destination, daysUntil, cover, traveler
     <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md card-hover cursor-pointer">
       {/* Cover Image */}
       <div className="relative h-44 overflow-hidden">
-        <img
-          src={cover}
-          alt={destination}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+        {cover.startsWith('linear-gradient') ? (
+          <div
+            className="w-full h-full transition-transform duration-500 group-hover:scale-110"
+            style={{ background: cover }}
+          />
+        ) : (
+          <img
+            src={cover}
+            alt={destination}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
         {/* Countdown Badge */}
         <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-          {daysUntil} days
+          In {daysUntil} days
         </div>
 
         {/* Destination overlay */}

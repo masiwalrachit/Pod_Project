@@ -22,7 +22,7 @@ export default function CombineNearbyAlert() {
           </button>
         </div>
         <p className="text-sm text-indigo-700 mt-1">
-          Tip: <span className="font-semibold">Pantheon</span> and <span className="font-semibold">Piazza Navona</span> are an 8 min walk apart but scheduled on different days. Move them to the same day?
+          Tip: <span className="font-semibold">Baga Beach</span> and <span className="font-semibold">Calangute Beach</span> are an 8 min walk apart but scheduled on different days. Move them to the same day?
         </p>
         <div className="flex gap-3 mt-3">
           <button className="bg-white border border-indigo-200 text-indigo-700 text-xs font-semibold px-4 py-2 rounded-xl hover:bg-indigo-50 hover:border-indigo-300 transition-colors shadow-sm">

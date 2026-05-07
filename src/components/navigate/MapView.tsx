@@ -25,8 +25,8 @@ export default function MapView({ showSafety }: MapViewProps) {
     if (!containerRef.current || mapRef.current) return;
 
     const map = L.map(containerRef.current, {
-      center: mapCenter,
-      zoom: 14,
+      center: [15.51, 73.80],
+      zoom: 12,
       zoomControl: false,
       dragging: true,
       scrollWheelZoom: true,
@@ -82,7 +82,7 @@ export default function MapView({ showSafety }: MapViewProps) {
       const cssClass = isSafe ? 'zone-safe' : 'zone-danger';
 
       const circle = L.circle(zone.center, {
-        radius:      380,
+        radius:      1200,
         color,
         fillColor:   color,
         fillOpacity: 0.15,

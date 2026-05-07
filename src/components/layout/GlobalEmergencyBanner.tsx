@@ -9,10 +9,10 @@ export default function GlobalEmergencyBanner() {
       {/* Dev Simulation Trigger */}
       <button 
         onClick={() => setIsActive(!isActive)}
-        className="fixed bottom-4 left-4 z-[9999] bg-slate-800 text-white px-3 py-2 rounded-xl shadow-lg opacity-50 hover:opacity-100 flex items-center gap-2 text-xs font-bold transition-all border border-slate-600 hover:bg-slate-700"
+        className="fixed bottom-4 left-4 z-[9999] bg-white text-slate-800 px-3 py-2 rounded-xl shadow-lg opacity-50 hover:opacity-100 flex items-center gap-2 text-xs font-bold transition-all border border-slate-200 hover:bg-slate-50"
         title="Simulate Global Emergency"
       >
-        <AlertTriangle className="w-4 h-4 text-red-400" />
+        <AlertTriangle className="w-4 h-4 text-red-500" />
         SIMULATE ALERT
       </button>
 
@@ -25,8 +25,8 @@ export default function GlobalEmergencyBanner() {
                 <AlertTriangle className="w-6 h-6 md:w-8 md:h-8" />
               </div>
               <div>
-                <p className="font-extrabold text-sm md:text-lg tracking-wide">EMERGENCY ALERT: Tsunami Warning for Coastal Regions</p>
-                <p className="text-red-100 text-xs md:text-sm font-medium">Seek higher ground immediately. Do not wait for official evacuation orders.</p>
+                <p className="font-extrabold text-sm md:text-lg tracking-wide">EMERGENCY ALERT: Cyclone Warning for Goa Coast</p>
+                <p className="text-red-100 text-xs md:text-sm font-medium">Seek shelter immediately. High winds expected. Avoid beaches.</p>
               </div>
             </div>
             <div className="flex items-center gap-4 flex-shrink-0">
