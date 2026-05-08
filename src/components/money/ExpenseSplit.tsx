@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Receipt, Users, ArrowRight, Plus, Search, Utensils, Car, Ticket, Coffee, CreditCard, Banknote } from 'lucide-react';
+import { Receipt, ArrowRight, Plus, Search, Utensils, Car, Ticket, Coffee, CreditCard, Banknote } from 'lucide-react';
 import { expenseData } from '../../data/mockData';
 
 export default function ExpenseSplit() {
